@@ -1,4 +1,4 @@
-# fair-market :department_store:
+# 🍀 fair-market 🍀
 <sup>*v.1.0*</sup>
 
 test project on **Ruby and Rails**
