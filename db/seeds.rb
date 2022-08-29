@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+data = []
+20.times do
+  data.append({
+    title: Faker::Food.dish,
+    description: Faker::Food.description})
+end
+Product.create!(data)
