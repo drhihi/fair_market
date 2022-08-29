@@ -1,4 +1,7 @@
-# fair-market :department_store: 
+# fair-market :department_store:
+<sup>*v.1.0*</sup>
+
+test project on **Ruby and Rails**
 
 ---
 
@@ -8,7 +11,7 @@ open credentials
 EDITOR=vim bin/rails credentials:edit
 ```
 and add template lines
-```
+```yaml
 database:
   username: user
   password: pswd
