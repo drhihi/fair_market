@@ -72,3 +72,6 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+# https://github.com/twbs/bootstrap-rubygem
+gem 'bootstrap', '~> 5.2.0'
