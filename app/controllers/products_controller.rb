@@ -1,23 +1,18 @@
 class ProductsController < ApplicationController
+  before_action :set_product, only: %i[show]
 
   def index
     @products = Product.all
   end
 
-  def new
-    @products = Product.new
+  def show
+    render json: @product
   end
 
-  def create
+  private
 
-  end
-
-  def destroy
-
-  end
-
-  def update
-
+  def set_product
+    @product = Product.find(params[:id])
   end
 
 end

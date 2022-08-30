@@ -75,3 +75,6 @@ end
 
 # https://github.com/twbs/bootstrap-rubygem
 gem 'bootstrap', '~> 5.2.0'
+
+# https://activeadmin.info/0-installation.html
+gem 'activeadmin'
