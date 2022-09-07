@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  feature: one
+  valuable: one
+  valuable_type: Valuable
+
+two:
+  feature: two
+  valuable: two
+  valuable_type: Valuable
