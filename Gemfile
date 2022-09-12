@@ -78,3 +78,6 @@ gem 'bootstrap', '~> 5.2.0'
 
 # https://activeadmin.info/0-installation.html
 gem 'activeadmin'
+
+# Auth https://github.com/heartcombo/devise
+gem 'devise'
