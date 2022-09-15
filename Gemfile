@@ -84,3 +84,6 @@ gem 'activeadmin'
 
 # Auth https://github.com/heartcombo/devise
 gem 'devise'
+
+# display icon https://fontawesome.com/docs/web/use-with/ruby-on-rails
+gem "font-awesome-sass"
