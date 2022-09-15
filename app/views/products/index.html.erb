@@ -1,10 +1,8 @@
-<div id='products'>
-  <% @products.each do |product| %>
-    <p>
-      <%= product.title %>
-    </p>
-    <p>
-      <%= product.description %>
-    </p>
-  <% end %>
-</div>
+<p>icon<i class="fa-solid fa-cart-arrow-down fa-2x"></i></p>
+<i class="fa-solid fa-cart-arrow-down fa-2x"></i>
+<% @products.each do |product| %>
+  <p>Title: <%= product.title %></p>
+  <p><%= truncate(product.description) %></p>
+  <i class="bi bi-5-square-fill"></i>
+  <%= link_to 'Add to Cart', root_path, class: 'btn btn-outline-success' %>
+<% end %>

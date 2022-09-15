@@ -64,6 +64,9 @@ group :development do
   # gem "spring"
 
   gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+
+  # https://github.com/ryanb/letter_opener
+  gem "letter_opener_web"
 end
 
 group :test do
