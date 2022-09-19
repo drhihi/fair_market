@@ -10,8 +10,9 @@ data = []
 1.upto(20) do |v|
   data.append({
                 id: v,
-                title: Faker::Food.dish,
-                description: Faker::Food.description })
+                title: Faker::Food.unique.dish,
+                description: Faker::Food.description,
+                price: rand(1..100) })
 end
 Product.upsert_all(data)
 
@@ -44,7 +45,7 @@ StringValue.all.map.with_index do |r, i|
                 id: i + 1,
                 feature_id: 1,
                 valuable_type: 'StringValue',
-                valuable_id: r.id})
+                valuable_id: r.id })
 end
 FeatureValue.upsert_all(data)
 
@@ -59,7 +60,7 @@ IntegerValue.all.map.with_index do |r, i|
                 id: i + 6,
                 feature_id: 2,
                 valuable_type: 'IntegerValue',
-                valuable_id: r.id})
+                valuable_id: r.id })
 end
 FeatureValue.upsert_all(data)
 
