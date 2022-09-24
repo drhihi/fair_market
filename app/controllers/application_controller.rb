@@ -4,6 +4,10 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_order
 
+  def authenticate_admin_user!
+    redirect_to root_path unless current_user.role_admin?
+  end
+
   protected
 
   def configure_permitted_parameters
