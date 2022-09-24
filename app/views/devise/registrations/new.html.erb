@@ -1,25 +1,37 @@
-<div class="container">
+<div class="container was-validated">
   <h2>Sign up</h2>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
-    <div class="field">
-      <%= f.label :email %><br/>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <div class="form-floating mb-3">
+      <%= f.text_field :name, autofocus: true, autocomplete: "name",
+                       class: 'form-control is-invalid', placeholder: :name, required: true %>
+      <%= f.label :name %>
     </div>
 
-    <div class="field">
+    <div class="input-group mb-3">
+      <span class="input-group-text">@</span>
+      <div class="form-floating">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email",
+                          class: 'form-control is-invalid', placeholder: :email, required: true %>
+        <%= f.label :email %>
+      </div>
+    </div>
+
+    <div class="form-floating mb-3">
+      <%= f.password_field :password, autocomplete: "new-password",
+                           class: 'form-control is-invalid', placeholder: :password, required: true %>
       <%= f.label :password %>
       <% if @minimum_password_length %>
         <em>(<%= @minimum_password_length %> characters minimum)</em>
-      <% end %><br/>
-      <%= f.password_field :password, autocomplete: "new-password" %>
+      <% end %>
     </div>
 
-    <div class="field">
-      <%= f.label :password_confirmation %><br/>
-      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <div class="form-floating mb-3">
+      <%= f.password_field :password_confirmation, autocomplete: "new-password",
+                           class: 'form-control is-invalid', placeholder: :password_confirmation, required: true %>
+      <%= f.label :password_confirmation %>
     </div>
 
     <div class="actions">
