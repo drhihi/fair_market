@@ -17,14 +17,16 @@
       </div>
     </div>
     <div class="col-2 mt-5 text-center">
-      <%= link_to order_path(current_order) do %>
-        <div class="class spinner-border text-success">
-          <i class="fa-solid fa-cart-arrow-down fa-3x link-warning "></i>
-          <span class="position-absolute top-0 start-100 translate-top badge rounded-pill bg-danger">
+      <nav class="navbar sticky-top">
+        <%= link_to order_path(current_order) do %>
+          <div class="class spinner-border text-success">
+            <i class="fa-solid fa-cart-arrow-down fa-3x link-warning"></i>
+            <span class="position-absolute top-0 start-100 translate-top badge rounded-pill bg-danger">
             <%= current_order.order_items.count %>
           </span>
-        </div>
-      <% end %>
+          </div>
+        <% end %>
+      </nav>
     </div>
   </div>
 </div>
