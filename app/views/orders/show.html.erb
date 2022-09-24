@@ -1,0 +1,27 @@
+<% @items.includes(:product).each do |item| %>
+  <div class="container mt-3">
+    <p>
+      Title: <%= item.product.title %>
+      Price: <%= item.product.price %>
+      Quantity: <%= item.quantity %>
+      <%= link_to product_order_item_path(product_id: item.product_id, id: item.id, method: :increment),
+                  data: { 'turbo-method': :put },
+                  title: '+1',
+                  class: 'text-decoration-none' do %>
+        <i class="fa-solid fa-circle-plus fa-2x text-success"></i>
+      <% end %>
+      <%= link_to product_order_item_path(product_id: item.product_id, id: item.id, method: :decrement),
+                  data: { 'turbo-method': :put },
+                  title: '-1',
+                  class: 'text-decoration-none' do %>
+        <i class="fa-solid fa-circle-minus fa-2x text-danger"></i>
+      <% end %>
+      <%= link_to product_order_item_path(product_id: item.product_id, id: item.id),
+                  data: { 'turbo-method': :delete },
+                  title: 'delete',
+                  class: 'text-decoration-none' do %>
+        <i class="fa-solid fa-trash-can-arrow-up fa-2x text-warning"></i>
+      <% end %>
+    </p>
+  </div>
+<% end %>

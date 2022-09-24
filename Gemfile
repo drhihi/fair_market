@@ -64,6 +64,9 @@ group :development do
   # gem "spring"
 
   gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+
+  # https://github.com/ryanb/letter_opener
+  gem "letter_opener_web"
 end
 
 group :test do
@@ -78,3 +81,9 @@ gem 'bootstrap', '~> 5.2.0'
 
 # https://activeadmin.info/0-installation.html
 gem 'activeadmin'
+
+# Auth https://github.com/heartcombo/devise
+gem 'devise'
+
+# display icon https://fontawesome.com/docs/web/use-with/ruby-on-rails
+gem "font-awesome-sass"
