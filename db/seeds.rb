@@ -7,12 +7,12 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 data = []
-1.upto(20) do |v|
+1.upto(100) do |v|
   data.append({
                 id: v,
                 title: Faker::Food.unique.dish,
                 description: Faker::Food.description,
-                price: rand(1..100) })
+                price: rand(1..1000) })
 end
 Product.upsert_all(data)
 

@@ -90,3 +90,6 @@ gem 'font-awesome-sass'
 
 # https://github.com/musaffa/file_validators
 gem 'file_validators'
+
+# https://github.com/ddnexus/pagy
+gem 'pagy'
