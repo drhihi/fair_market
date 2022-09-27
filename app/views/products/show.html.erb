@@ -1,4 +1,11 @@
-<%= @product.description %>
+<div>
+  <% @product.images.each do |image| %>
+    <%= image_tag image.variant(:large) %>
+  <% end %>
+</div>
+<div>
+  <%= @product.description %>
 
-<%= link_to 'Root', root_path, class: 'btn btn-success' %>
-<%= link_to 'Destroy', product_path(@product), data: { 'turbo-method': :delete }%>
+  <%= link_to 'Root', root_path, class: 'btn btn-success' %>
+  <%= link_to 'Destroy', product_path(@product), data: { 'turbo-method': :delete } %>
+</div>
