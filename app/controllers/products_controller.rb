@@ -17,6 +17,11 @@ class ProductsController < ApplicationController
     end
   end
 
+  def fetch_products
+    ProductFetchJob.set(wait: 10).perform_later
+    # redirect_to root_path, notice: "Product was created"
+  end
+
   private
 
   def set_product
