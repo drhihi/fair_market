@@ -19,4 +19,11 @@ class Product < ApplicationRecord
     attachable.variant :large, resize: '250x250'
   end
 
+  before_update :send_mail_with_changed_price, if: :price_changed?
+
+  private
+
+  def send_mail_with_changed_price
+    ProductJob.set(wait: 10).perform_later(self)
+  end
 end
