@@ -5,14 +5,23 @@ class OrdersController < ApplicationController
 
   def update
     current_order.update(order_params)
+
+    UserMailer.with(name: current_order.name,
+                    email: current_order.email,
+                    total_amount: current_order.total_amount)
+              .order_created
+              .deliver_later
+
     current_order.status_ordered!
-    flash.alert = 'Order confirmed'
-    redirect_to root_path
+
+    redirect_to root_path, notice: 'Order confirmed'
   end
+
+  def checkout; end
 
   private
 
   def order_params
-    params.permit(:full_name, :email, :phone)
+    params.require(:order).permit(:name, :email, :phone, :address)
   end
 end

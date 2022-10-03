@@ -1,7 +1,7 @@
 <div class="container">
-  <%= form_for @product do |f| %>
-    <%= render 'devise/shared/error_messages', resource: @product %>
+  <%= render 'devise/shared/error_messages', resource: @product %>
 
+  <%= form_for @product do |f| %>
     <div class="form-group mt-3">
       <%= f.label :title %>
       <%= f.text_field :title, class: 'form-control w-75' %>

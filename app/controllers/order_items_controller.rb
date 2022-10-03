@@ -8,8 +8,10 @@ class OrderItemsController < ApplicationController
       @order_item = current_order.order_items.create(product_id: params[:product_id])
     end
 
-    redirect_to root_path
-    flash.alert = "#{ @order_item.product.title } added to the cart."
+    flash[:notice] = "#{ @order_item.product.title } added to the cart."
+    redirect_to do
+      format.turbo_stream
+    end
   end
 
   def update

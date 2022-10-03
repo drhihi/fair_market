@@ -14,7 +14,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :orders
+  resources :orders do
+    collection do
+      get :checkout
+    end
+  end
 
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
 
