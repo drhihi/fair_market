@@ -2,7 +2,17 @@ class ProductsController < ApplicationController
   before_action :set_product, only: %i[show edit update]
 
   def index
-    @pagy, @products = pagy(Product.all, items: 12)
+    products = Product.all
+    products = products.order(price: params[:price]) if %w[asc desc].include? params[:price]
+    products = products.where('price >= ?', params[:min_price]) if params[:min_price].present?
+    products = products.where('price <= ?', params[:max_price]) if params[:max_price].present?
+    products = products.joins(:categories)
+                       .where(categories: { id: params[:category_ids] }) if params[:category_ids].present?
+    @categories = Category.left_joins(:products)
+                          .select('categories.id, categories.title, COUNT(products.id) products_count')
+                          .group(:id)
+                          .order(:title)
+    @pagy, @products = pagy(products)
   end
 
   def show; end

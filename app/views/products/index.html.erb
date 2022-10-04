@@ -1,3 +1,28 @@
 <div class="container-fluid">
-  <%= render 'products' %>
+  <div class="row">
+    <div class="col-1 col-md-3 col-xl-2 px-sm-2 p-0 navbar-light bg-light">
+        <%= render 'filters' %>
+    </div>
+    <div class="col">
+      <%= render 'sorts' %>
+      <%= render 'products' %>
+    </div>
+    <div class="col-1 p-0">
+      <% if current_order.order_items.present? %>
+        <nav class="navbar mt-5 ms-5 sticky-top text-center">
+          <%= link_to order_path(current_order) do %>
+            <div class="class spinner-border text-success">
+              <i class="fa-solid fa-cart-arrow-down fa-3x link-warning"></i>
+              <span class="position-absolute top-0 start-100 translate-top badge rounded-pill bg-danger">
+                <%= current_order.order_items.count %>
+              </span>
+            </div>
+          <% end %>
+        </nav>
+      <% end %>
+    </div>
+  </div>
+  <nav class="navbar bg-light sticky-bottom">
+    <%== pagy_nav(@pagy) %>
+  </nav>
 </div>
