@@ -1,10 +1,10 @@
 <div class="conteiner p-3">
   <div class="row row-cols-3 mt-3">
-    <% @items.includes(:product).each do |item| %>
+    <% @items.each do |item| %>
       <div class="card m-2 p-1 col-3">
-        <h4 class="card-title"><%= item.product.title %></h4>
-        <p class="card-text"><%= item.product.description.truncate(100) %></p>
-        <p class="text-success">Price: <%= item.product.price %></p>
+        <h4 class="card-title"><%= item.product_title %></h4>
+        <p class="card-text"><%= item.product_description.truncate(100) %></p>
+        <p class="text-success">Price: <%= item.product_price %></p>
         <p class="text-success">Quantity: <%= item.quantity %></p>
         <p>
           <%= link_to product_order_item_path(product_id: item.product_id, id: item.id, method: :increment),

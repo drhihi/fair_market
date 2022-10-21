@@ -93,3 +93,6 @@ gem 'file_validators'
 
 # https://github.com/ddnexus/pagy
 gem 'pagy'
+
+# https://github.com/selleo/pattern
+gem 'rails-patterns'

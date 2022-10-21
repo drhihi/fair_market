@@ -1,6 +1,9 @@
 class OrdersController < ApplicationController
   def show
-    @items = current_order.order_items.order(created_at: :asc)
+    # @items = current_order.order_items.order(created_at: :asc)
+    # order_items = current_order.order_items
+    # @items = OrderItems::OrderItemsWithProductsQuery.call(order_items, order_id: current_order.id)
+    @items = OrderItems::OrderItemsWithProductsQuery.call(order_id: current_order.id)
   end
 
   def update
@@ -13,7 +16,9 @@ class OrdersController < ApplicationController
               .deliver_later
 
     current_order.status_ordered!
-
+    # result = OrderUpdateService.new(current_order, order_params).call
+    # if result.success do
+    # end
     redirect_to root_path, notice: 'Order confirmed'
   end
 
